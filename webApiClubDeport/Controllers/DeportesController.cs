@@ -33,7 +33,7 @@ namespace webApiClubDeport.Controllers
          * Obtenemos un enumerado de deportes
          */
         [HttpGet]
-        public async Task<ActionResult<IEnumerable<DeporteViewModel>>> Get(int numPag = 1, int cantRegist = 10)
+        public async Task<ActionResult<IEnumerable<DeporteViewModel>>> Get(int numPag = 1, int cantRegist = 5)
         {
             var query = context.Deportes.AsQueryable();
             var totalRegis = query.Count();

@@ -26,6 +26,10 @@ namespace webApiClubDeport.Controllers
         [Authorize(AuthenticationSchemes = JwtBearerDefaults.AuthenticationScheme)]
         public async Task<ActionResult<IEnumerable<PistaDispViewModel>>> Get([FromBody] PistaBuscar pistaBuscar) {
 
+            if (pistaBuscar.Deporte == null || pistaBuscar.Socio == null) {
+                return NotFound(new Result(404, false, "No ha introducido los parámetros necesarios").GetResultJson());
+            }
+
             var deportExist = await context.Deportes.FirstOrDefaultAsync(x => x.Nombre.Trim().ToLower() == pistaBuscar.Deporte.Trim().ToLower());
             if (deportExist == null)
             {

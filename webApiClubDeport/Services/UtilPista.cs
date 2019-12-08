@@ -24,24 +24,22 @@ namespace webApiClubDeport.Services
 
             var estructuraSalida = new Dictionary<Pista, List<int>>();
 
-            List<int> horasDisponiblesSocio = ObtenerHorasDisponibles(context, pistaBuscar);
-
             foreach (Pista pista in pistas)
             {
-                List<int> horasDisponibles = horasDisponiblesSocio;
+                List<int> horasDisponiblesSocio = ObtenerHorasDisponibles(context, pistaBuscar);
 
                 if (pista.Reservas != null)
                 {
                     pista.Reservas.ForEach(x =>
                     {
-                        if (horasDisponibles.Contains(x.Hora))
+                        if (horasDisponiblesSocio.Contains(x.Hora))
                         {
-                            horasDisponibles.Remove(x.Hora);
+                            horasDisponiblesSocio.Remove(x.Hora);
                         }
                     });
                 }
 
-                estructuraSalida.Add(pista, horasDisponibles);
+                estructuraSalida.Add(pista, horasDisponiblesSocio);
 
             }
 

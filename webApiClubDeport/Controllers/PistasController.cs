@@ -32,7 +32,7 @@ namespace webApiClubDeport.Controllers
          * Obtenemos un enumerable de las pistas
          */
         [HttpGet]
-        public async Task<ActionResult<IEnumerable<PistaViewModel>>> Get(int numPag = 1, int cantRegist = 10)
+        public async Task<ActionResult<IEnumerable<PistaViewModel>>> Get(int numPag = 1, int cantRegist = 5)
         {
             var query = context.Pistas.AsQueryable();
             var totalRegis = query.Count();

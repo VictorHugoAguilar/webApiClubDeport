@@ -32,7 +32,7 @@ namespace webApiClubDeport.Controllers
          *  Obtenemos todos los socios
          */
         [HttpGet]
-        public async Task<ActionResult<IEnumerable<SocioViewModel>>> Get(int numPag = 1, int cantRegist = 10)
+        public async Task<ActionResult<IEnumerable<SocioViewModel>>> Get(int numPag = 1, int cantRegist = 5)
         {
             var query = context.Socios.AsQueryable();
             var totalRegis = query.Count();

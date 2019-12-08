@@ -35,7 +35,7 @@ namespace webApiClubDeport.Controllers
          */
         [HttpGet]
         [Authorize(AuthenticationSchemes = JwtBearerDefaults.AuthenticationScheme)]
-        public async Task<ActionResult<IEnumerable<ReservaViewModel>>> Get(int numPag = 1, int cantRegist = 10)
+        public async Task<ActionResult<IEnumerable<ReservaViewModel>>> Get(int numPag = 1, int cantRegist = 5)
         {
             var query = context.Reservas.AsQueryable();
             var totalRegis = query.Count();
@@ -81,7 +81,7 @@ namespace webApiClubDeport.Controllers
          */
         [HttpGet("obtenerReservasFecha", Name = "obtenerReservasFecha")]
         [Authorize(AuthenticationSchemes = JwtBearerDefaults.AuthenticationScheme)]
-        public ActionResult<IEnumerable<ReservaViewModel>> Get([FromBody]FechaDto fechaBuscar, int numPag = 1, int cantRegist = 10)
+        public ActionResult<IEnumerable<ReservaViewModel>> Get([FromBody]FechaDto fechaBuscar, int numPag = 1, int cantRegist = 5)
         {
             var query = context.Reservas.AsQueryable();
             var totalRegist = query.Count();

@@ -19,7 +19,6 @@ using webApiClubDeport.Models.Deportes;
 using webApiClubDeport.Models.PistaModel;
 using webApiClubDeport.Models.SocioModel;
 using webApiClubDeport.Models.ReservaModel;
-using Swashbuckle.AspNetCore.Swagger;
 using Microsoft.OpenApi.Models;
 
 [assembly: ApiConventionType(typeof(DefaultApiConventions))]
@@ -128,7 +127,6 @@ namespace webApiClubDeport
             }
             else
             {
-                // The default HSTS value is 30 days. You may want to change this for production scenarios, see https://aka.ms/aspnetcore-hsts.
                 app.UseHsts();
             }
 
@@ -137,9 +135,7 @@ namespace webApiClubDeport
             app.UseAuthorization();
 
             app.UseCors();
-            // app.UseCors(builder => builder.WithOrigins("https://www.apirequest.io").WithMethods("GET"));
-
-            // app.UseMvc();
+     
             app.UseEndpoints(endpoints =>
             {
                 endpoints.MapControllers();

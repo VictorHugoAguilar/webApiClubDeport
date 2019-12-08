@@ -47,9 +47,9 @@ namespace webApiClubDeport.Controllers
             Response.Headers["X-Cantidad-Paginas"] =
                 ((int)Math.Ceiling((double)totalRegis / cantRegist)).ToString();
 
-            var deportesDto = mapper.Map<List<DeporteViewModel>>(deportes);
+            var deportesViewModel = mapper.Map<List<DeporteViewModel>>(deportes);
 
-            return deportesDto;
+            return deportesViewModel;
         }
 
         /**
@@ -64,9 +64,9 @@ namespace webApiClubDeport.Controllers
                 return NotFound(new Result(404, false, "No se ha encontrado deporte con el id asociado"));
             }
 
-            var deporteDto = mapper.Map<DeporteViewModel>(deporte);
+            var deportesViewModel = mapper.Map<DeporteViewModel>(deporte);
 
-            return deporteDto;
+            return deportesViewModel;
         }
 
         /**

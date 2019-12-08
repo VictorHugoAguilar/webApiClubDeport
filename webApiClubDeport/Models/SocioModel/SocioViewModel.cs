@@ -1,5 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using webApiClubDeport.Models.ReservaModel;
 
 namespace webApiClubDeport.Models.SocioModel

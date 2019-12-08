@@ -22,7 +22,6 @@ using webApiClubDeport.Models.ReservaModel;
 using Microsoft.OpenApi.Models;
 
 [assembly: ApiConventionType(typeof(DefaultApiConventions))]
-
 namespace webApiClubDeport
 {
     public class Startup
@@ -76,6 +75,7 @@ namespace webApiClubDeport
             services.AddIdentity<ApplicationUser, IdentityRole>()
                 .AddEntityFrameworkStores<ApplicationDbContext>()
                 .AddDefaultTokenProviders();
+
             services.AddMvc().SetCompatibilityVersion(CompatibilityVersion.Version_3_0);
 
             services.AddAuthentication(JwtBearerDefaults.AuthenticationScheme)
@@ -96,7 +96,7 @@ namespace webApiClubDeport
                 config.SwaggerDoc("v1", new Microsoft.OpenApi.Models.OpenApiInfo
                 {
                     Version = "V1",
-                    Title = "Gestión de Reservas Pistas para Club polideportivo",
+                    Title = "Gestión de Reservas de Pistas para Club polideportivo",
                     Description = "EndPoints para consultas webApi de reservas para club polideportivo",
                     License = new OpenApiLicense()
                     {

@@ -2,7 +2,6 @@
 using Microsoft.AspNetCore.Mvc;
 using System.Security.Claims;
 using System.Threading.Tasks;
-using webApiClubDeport.Context;
 using webApiClubDeport.Models;
 
 namespace webApiClubDeport.Controllers
@@ -12,12 +11,10 @@ namespace webApiClubDeport.Controllers
     public class UsuariosController : ControllerBase
     {
         private readonly UserManager<ApplicationUser> userManager;
-        private readonly ApplicationDbContext context;
 
-        public UsuariosController(UserManager<ApplicationUser> userManager, ApplicationDbContext context)
+        public UsuariosController(UserManager<ApplicationUser> userManager)
         {
             this.userManager = userManager;
-            this.context = context;
         }
 
         [HttpPost("AsignarUsuarioRol")]

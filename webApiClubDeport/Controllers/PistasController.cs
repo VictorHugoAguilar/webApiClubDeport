@@ -94,9 +94,9 @@ namespace webApiClubDeport.Controllers
             context.Add(pista);
 
             await context.SaveChangesAsync();
-            var pistaDto = mapper.Map<PistaViewModel>(pista);
+            var pistaViewModel = mapper.Map<PistaViewModel>(pista);
 
-            return new CreatedAtRouteResult("ObtenerPista", new { id = pista.Id }, pistaDto);
+            return new CreatedAtRouteResult("ObtenerPista", new { id = pista.Id }, pistaViewModel);
         }
 
         /**

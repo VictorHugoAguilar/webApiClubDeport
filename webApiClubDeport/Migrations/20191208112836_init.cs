@@ -2,7 +2,7 @@
 
 namespace webApiClubDeport.Migrations
 {
-    public partial class pistas01 : Migration
+    public partial class init : Migration
     {
         protected override void Up(MigrationBuilder migrationBuilder)
         {
@@ -11,7 +11,7 @@ namespace webApiClubDeport.Migrations
                 keyColumn: "Id",
                 keyValue: "f406bd6e-0de4-4679-874d-33bcb9c6861b",
                 column: "ConcurrencyStamp",
-                value: "9620c544-623a-4755-922d-c08cdccbf069");
+                value: "a90b779a-f7e2-4976-b45e-b70a027268f0");
         }
 
         protected override void Down(MigrationBuilder migrationBuilder)
@@ -21,7 +21,7 @@ namespace webApiClubDeport.Migrations
                 keyColumn: "Id",
                 keyValue: "f406bd6e-0de4-4679-874d-33bcb9c6861b",
                 column: "ConcurrencyStamp",
-                value: "e7de2365-b9ef-493a-9a1c-9026591efedd");
+                value: "db474ab1-f7c1-42ff-a3df-2a6f60cbba1b");
         }
     }
 }

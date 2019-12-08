@@ -10,8 +10,8 @@ using webApiClubDeport.Context;
 namespace webApiClubDeport.Migrations
 {
     [DbContext(typeof(ApplicationDbContext))]
-    [Migration("20191206174142_pistas03")]
-    partial class pistas03
+    [Migration("20191208112836_init")]
+    partial class init
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
@@ -51,7 +51,7 @@ namespace webApiClubDeport.Migrations
                         new
                         {
                             Id = "f406bd6e-0de4-4679-874d-33bcb9c6861b",
-                            ConcurrencyStamp = "c331dd97-6829-41f8-9fec-37ab8e607390",
+                            ConcurrencyStamp = "a90b779a-f7e2-4976-b45e-b70a027268f0",
                             Name = "admin",
                             NormalizedName = "admin"
                         });
@@ -169,7 +169,9 @@ namespace webApiClubDeport.Migrations
                         .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
 
                     b.Property<string>("Nombre")
-                        .HasColumnType("nvarchar(max)");
+                        .IsRequired()
+                        .HasColumnType("nvarchar(50)")
+                        .HasMaxLength(50);
 
                     b.HasKey("Id");
 
@@ -187,12 +189,16 @@ namespace webApiClubDeport.Migrations
                         .HasColumnType("int");
 
                     b.Property<string>("Descripcion")
-                        .HasColumnType("nvarchar(max)");
+                        .IsRequired()
+                        .HasColumnType("nvarchar(50)")
+                        .HasMaxLength(50);
 
                     b.Property<string>("Localizacion")
+                        .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("Numero")
+                        .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
                     b.HasKey("Id");
@@ -238,16 +244,20 @@ namespace webApiClubDeport.Migrations
                         .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
 
                     b.Property<string>("Apellido")
-                        .HasColumnType("nvarchar(max)");
+                        .HasColumnType("nvarchar(50)")
+                        .HasMaxLength(50);
 
                     b.Property<bool>("Baja")
                         .HasColumnType("bit");
 
                     b.Property<string>("Mail")
+                        .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("Nombre")
-                        .HasColumnType("nvarchar(max)");
+                        .IsRequired()
+                        .HasColumnType("nvarchar(50)")
+                        .HasMaxLength(50);
 
                     b.Property<int>("Telefono")
                         .HasColumnType("int");

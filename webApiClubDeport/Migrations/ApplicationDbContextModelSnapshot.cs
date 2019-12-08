@@ -49,7 +49,7 @@ namespace webApiClubDeport.Migrations
                         new
                         {
                             Id = "f406bd6e-0de4-4679-874d-33bcb9c6861b",
-                            ConcurrencyStamp = "db474ab1-f7c1-42ff-a3df-2a6f60cbba1b",
+                            ConcurrencyStamp = "a90b779a-f7e2-4976-b45e-b70a027268f0",
                             Name = "admin",
                             NormalizedName = "admin"
                         });

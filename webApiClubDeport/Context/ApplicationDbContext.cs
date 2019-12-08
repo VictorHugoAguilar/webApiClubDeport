@@ -15,7 +15,7 @@ namespace webApiClubDeport.Context
 
         protected override void OnModelCreating(ModelBuilder builder)
         {
-
+            
             var roleAdmin = new IdentityRole()
             {
                 Id = "f406bd6e-0de4-4679-874d-33bcb9c6861b",

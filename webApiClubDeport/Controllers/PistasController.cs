@@ -1,4 +1,6 @@
 ﻿using AutoMapper;
+using Microsoft.AspNetCore.Authentication.JwtBearer;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using System;
@@ -73,6 +75,8 @@ namespace webApiClubDeport.Controllers
          * Crear una pista pasando por el cuerpo un objeto de la clase pista
          */
         [HttpPost]
+        [Authorize(AuthenticationSchemes = JwtBearerDefaults.AuthenticationScheme, Roles = "admin")]
+
         public async Task<ActionResult> Post([FromBody] PistaDto pistaCreated)
         {
             if (pistaCreated.Numero == null || pistaCreated.DeporteId.Equals(0) || pistaCreated.Descripcion == null)
@@ -100,6 +104,8 @@ namespace webApiClubDeport.Controllers
          * Modificar datos de una pista enviando en el cuerpo el objeto de la clase pista
          */
         [HttpPut("{id}")]
+        [Authorize(AuthenticationSchemes = JwtBearerDefaults.AuthenticationScheme, Roles = "admin")]
+
         public async Task<ActionResult> Put(int id, [FromBody] PistaDto pistaActualizada)
         {
 
@@ -116,6 +122,8 @@ namespace webApiClubDeport.Controllers
          * 
          */
         [HttpDelete("{id}")]
+        [Authorize(AuthenticationSchemes = JwtBearerDefaults.AuthenticationScheme, Roles = "admin")]
+
         public async Task<ActionResult<Pista>> Delete(int id)
         {
 

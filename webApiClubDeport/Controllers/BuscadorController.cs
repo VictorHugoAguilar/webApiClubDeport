@@ -1,4 +1,6 @@
-﻿using Microsoft.AspNetCore.Mvc;
+﻿using Microsoft.AspNetCore.Authentication.JwtBearer;
+using Microsoft.AspNetCore.Authorization;
+using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using System.Collections.Generic;
 using System.Threading.Tasks;
@@ -21,6 +23,7 @@ namespace webApiClubDeport.Controllers
 
 
         [HttpGet]
+        [Authorize(AuthenticationSchemes = JwtBearerDefaults.AuthenticationScheme)]
         public async Task<ActionResult<IEnumerable<PistaDispViewModel>>> Get([FromBody] PistaBuscar pistaBuscar) {
 
             var deportExist = await context.Deportes.FirstOrDefaultAsync(x => x.Nombre.Trim().ToLower() == pistaBuscar.Deporte.Trim().ToLower());

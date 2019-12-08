@@ -30,14 +30,6 @@ namespace webApiClubDeport.Controllers
             _configuration = configuration;
         }
 
-        [HttpGet]
-        public ActionResult<string> Get()
-        {
-            string Author = "Victor Aguilar";
-            return Ok(new { Author });
-        }
-
-
         [HttpPost("Crear")]
         public async Task<ActionResult<UserToken>> CreateUser([FromBody] UserInfo model)
         {
@@ -49,7 +41,7 @@ namespace webApiClubDeport.Controllers
             }
             else
             {
-                return BadRequest("Username or password invalid");
+                return BadRequest("Usuario (mail) o Password (Mayus, Numero, Carácterer especial) invalido");
             }
 
         }
@@ -67,7 +59,7 @@ namespace webApiClubDeport.Controllers
             }
             else
             {
-                ModelState.AddModelError(string.Empty, "Invalid login attempt.");
+                ModelState.AddModelError(string.Empty, "Login invalido");
                 return BadRequest(ModelState);
             }
 
@@ -79,7 +71,6 @@ namespace webApiClubDeport.Controllers
             var claims = new List<Claim>
             {
                  new Claim(JwtRegisteredClaimNames.UniqueName, userInfo.Email),
-                    new Claim("miValor", "Lo que yo quiera"),
                  new Claim(JwtRegisteredClaimNames.Jti, Guid.NewGuid().ToString())
              };
 

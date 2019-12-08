@@ -11,36 +11,35 @@ namespace webApiClubDeport.Controllers
     [Route("api/[controller]")]
     public class UsuariosController : ControllerBase
     {
-        private readonly ApplicationDbContext context;
         private readonly UserManager<ApplicationUser> userManager;
+        private readonly ApplicationDbContext context;
 
-        public UsuariosController(ApplicationDbContext context,
-            UserManager<ApplicationUser> userManager)
+        public UsuariosController(UserManager<ApplicationUser> userManager, ApplicationDbContext context)
         {
-            this.context = context;
             this.userManager = userManager;
+            this.context = context;
         }
 
-        [Route("AsignarUsuarioRol")]
-        [HttpPut]
+        [HttpPost("AsignarUsuarioRol")]
         public async Task<ActionResult> AsignarRolUsuario(EditarRolDTO editarRolDTO)
         {
             var usuario = await userManager.FindByIdAsync(editarRolDTO.UserId);
+            if (usuario == null) { return NotFound(); }
             await userManager.AddClaimAsync(usuario, new Claim(ClaimTypes.Role, editarRolDTO.RoleName));
             await userManager.AddToRoleAsync(usuario, editarRolDTO.RoleName);
             return Ok();
         }
 
-        [Route("RemoverUsuarioRol")]
-        [HttpPut]
+        [HttpPost("RemoverUsuarioRol")]
         public async Task<ActionResult> RemoverUsuarioRol(EditarRolDTO editarRolDTO)
         {
             var usuario = await userManager.FindByIdAsync(editarRolDTO.UserId);
+            if (usuario == null) { return NotFound(); }
             await userManager.RemoveClaimAsync(usuario, new Claim(ClaimTypes.Role, editarRolDTO.RoleName));
             await userManager.RemoveFromRoleAsync(usuario, editarRolDTO.RoleName);
             return Ok();
         }
     }
 
-    
+
 }

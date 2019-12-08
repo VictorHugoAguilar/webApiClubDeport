@@ -1,4 +1,6 @@
 ﻿using AutoMapper;
+using Microsoft.AspNetCore.Authentication.JwtBearer;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using System;
@@ -32,6 +34,7 @@ namespace webApiClubDeport.Controllers
          * Obtenemos un enumerable de las pistas
          */
         [HttpGet]
+        [Authorize(AuthenticationSchemes = JwtBearerDefaults.AuthenticationScheme)]
         public async Task<ActionResult<IEnumerable<ReservaViewModel>>> Get(int numPag = 1, int cantRegist = 10)
         {
             var query = context.Reservas.AsQueryable();
@@ -56,6 +59,7 @@ namespace webApiClubDeport.Controllers
          * Devuelve el listado de reservas para la fecha pasada por el cuerpo 
          */
         [HttpGet("{id}", Name = "obtenerReserva")]
+        [Authorize(AuthenticationSchemes = JwtBearerDefaults.AuthenticationScheme)]
         public async Task<ActionResult<IEnumerable<ReservaViewModel>>> Get(int id)
         {
             var reservas = await context.Reservas.Include(x => x.Pista).Include(x => x.Socio)
@@ -76,6 +80,7 @@ namespace webApiClubDeport.Controllers
          * Devuelve el listado de reservas para la fecha pasada por el cuerpo 
          */
         [HttpGet("obtenerReservasFecha", Name = "obtenerReservasFecha")]
+        [Authorize(AuthenticationSchemes = JwtBearerDefaults.AuthenticationScheme)]
         public ActionResult<IEnumerable<ReservaViewModel>> Get([FromBody]FechaDto fechaBuscar, int numPag = 1, int cantRegist = 10)
         {
             var query = context.Reservas.AsQueryable();
@@ -107,6 +112,7 @@ namespace webApiClubDeport.Controllers
          * Crear una reserva pasandole en el cuerpo los datos
          */
         [HttpPost]
+        [Authorize(AuthenticationSchemes = JwtBearerDefaults.AuthenticationScheme)]
         public async Task<ActionResult> Post([FromBody] ReservaDto reservaCreated)
         {
             if (reservaCreated.Hora < 8 || reservaCreated.Hora > 22)
@@ -156,6 +162,7 @@ namespace webApiClubDeport.Controllers
          * Modificar una reserva pasandole en el cuerpo los datos
          */
         [HttpPut("{id}")]
+        [Authorize(AuthenticationSchemes = JwtBearerDefaults.AuthenticationScheme)]
         public async Task<ActionResult> Put(int id, [FromBody] ReservaDto reservaModificated)
         {
             if (reservaModificated.Hora < 8 || reservaModificated.Hora > 22)
@@ -204,6 +211,8 @@ namespace webApiClubDeport.Controllers
          * 
          */
         [HttpDelete("{id}")]
+        [Authorize(AuthenticationSchemes = JwtBearerDefaults.AuthenticationScheme)]
+
         public async Task<ActionResult<Reserva>> Delete(int id)
         {
             var reservaId = await context.Socios.Select(x => x.Id).FirstOrDefaultAsync(x => x == id);

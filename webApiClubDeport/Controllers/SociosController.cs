@@ -1,4 +1,6 @@
 ﻿using AutoMapper;
+using Microsoft.AspNetCore.Authentication.JwtBearer;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using System;
@@ -72,6 +74,7 @@ namespace webApiClubDeport.Controllers
         * Crear un socio pasando por el cuerpo un objeto de la clase socio
         */
         [HttpPost]
+        [Authorize(AuthenticationSchemes = JwtBearerDefaults.AuthenticationScheme, Roles = "admin")]
         public async Task<ActionResult> Post([FromBody] SocioDto socioCreated)
         {
             if (socioCreated.Nombre == null || socioCreated.Mail == null || socioCreated.Telefono.Equals(0))
@@ -106,6 +109,7 @@ namespace webApiClubDeport.Controllers
          * Modificar datos de una pista enviando en el cuerpo el objeto de la clase pista
          */
         [HttpPut("{id}")]
+        [Authorize(AuthenticationSchemes = JwtBearerDefaults.AuthenticationScheme, Roles = "admin")]
         public async Task<ActionResult> Put(int id, [FromBody] SocioDto socioActualizado)
         {
             var socio = mapper.Map<Socio>(socioActualizado);
@@ -122,6 +126,7 @@ namespace webApiClubDeport.Controllers
          * 
          */
         [HttpDelete("{id}")]
+        [Authorize(AuthenticationSchemes = JwtBearerDefaults.AuthenticationScheme, Roles = "admin")]
         public async Task<ActionResult<Socio>> Delete(int id)
         {
             var socioId = await context.Socios.Select(x => x.Id).FirstOrDefaultAsync(x => x == id);

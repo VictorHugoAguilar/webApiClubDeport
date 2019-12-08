@@ -1,3 +1,10 @@
+C:\Users\victor\source\repos\webApiClubDeport\webApiClubDeport\obj\Debug\netcoreapp3.0\webApiClubDeport.csprojAssemblyReference.cache
+C:\Users\victor\source\repos\webApiClubDeport\webApiClubDeport\obj\Debug\netcoreapp3.0\staticwebassets\webApiClubDeport.StaticWebAssets.Manifest.cache
+C:\Users\victor\source\repos\webApiClubDeport\webApiClubDeport\obj\Debug\netcoreapp3.0\staticwebassets\webApiClubDeport.StaticWebAssets.xml
+C:\Users\victor\source\repos\webApiClubDeport\webApiClubDeport\obj\Debug\netcoreapp3.0\webApiClubDeport.MvcApplicationPartsAssemblyInfo.cs
+C:\Users\victor\source\repos\webApiClubDeport\webApiClubDeport\obj\Debug\netcoreapp3.0\webApiClubDeport.MvcApplicationPartsAssemblyInfo.cache
+C:\Users\victor\source\repos\webApiClubDeport\webApiClubDeport\obj\Debug\netcoreapp3.0\webApiClubDeport.AssemblyInfoInputs.cache
+C:\Users\victor\source\repos\webApiClubDeport\webApiClubDeport\obj\Debug\netcoreapp3.0\webApiClubDeport.AssemblyInfo.cs
 C:\Users\victor\source\repos\webApiClubDeport\webApiClubDeport\bin\Debug\netcoreapp3.0\appsettings.Development.json
 C:\Users\victor\source\repos\webApiClubDeport\webApiClubDeport\bin\Debug\netcoreapp3.0\appsettings.json
 C:\Users\victor\source\repos\webApiClubDeport\webApiClubDeport\bin\Debug\netcoreapp3.0\Properties\launchSettings.json
@@ -48,12 +55,6 @@ C:\Users\victor\source\repos\webApiClubDeport\webApiClubDeport\bin\Debug\netcore
 C:\Users\victor\source\repos\webApiClubDeport\webApiClubDeport\bin\Debug\netcoreapp3.0\runtimes\unix\lib\netcoreapp2.0\System.Runtime.Caching.dll
 C:\Users\victor\source\repos\webApiClubDeport\webApiClubDeport\bin\Debug\netcoreapp3.0\runtimes\win\lib\netcoreapp2.0\System.Runtime.Caching.dll
 C:\Users\victor\source\repos\webApiClubDeport\webApiClubDeport\bin\Debug\netcoreapp3.0\runtimes\win\lib\netstandard2.0\System.Security.Cryptography.ProtectedData.dll
-C:\Users\victor\source\repos\webApiClubDeport\webApiClubDeport\obj\Debug\netcoreapp3.0\staticwebassets\webApiClubDeport.StaticWebAssets.Manifest.cache
-C:\Users\victor\source\repos\webApiClubDeport\webApiClubDeport\obj\Debug\netcoreapp3.0\staticwebassets\webApiClubDeport.StaticWebAssets.xml
-C:\Users\victor\source\repos\webApiClubDeport\webApiClubDeport\obj\Debug\netcoreapp3.0\webApiClubDeport.MvcApplicationPartsAssemblyInfo.cs
-C:\Users\victor\source\repos\webApiClubDeport\webApiClubDeport\obj\Debug\netcoreapp3.0\webApiClubDeport.MvcApplicationPartsAssemblyInfo.cache
-C:\Users\victor\source\repos\webApiClubDeport\webApiClubDeport\obj\Debug\netcoreapp3.0\webApiClubDeport.AssemblyInfoInputs.cache
-C:\Users\victor\source\repos\webApiClubDeport\webApiClubDeport\obj\Debug\netcoreapp3.0\webApiClubDeport.AssemblyInfo.cs
 C:\Users\victor\source\repos\webApiClubDeport\webApiClubDeport\obj\Debug\netcoreapp3.0\webApiClubDeport.RazorTargetAssemblyInfo.cache
 C:\Users\victor\source\repos\webApiClubDeport\webApiClubDeport\obj\Debug\netcoreapp3.0\webApiClubDeport.csproj.CopyComplete
 C:\Users\victor\source\repos\webApiClubDeport\webApiClubDeport\obj\Debug\netcoreapp3.0\webApiClubDeport.dll

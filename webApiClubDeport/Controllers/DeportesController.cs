@@ -9,12 +9,13 @@ using webApiClubDeport.Models.Deportes;
 using webApiClubDeport.Object;
 using System.Linq;
 using System;
+using Microsoft.AspNetCore.Authorization;
+using Microsoft.AspNetCore.Authentication.JwtBearer;
 
 namespace webApiClubDeport.Controllers
 {
     [Route("api/[controller]")]
     [ApiController]
-    //[Authorize(AuthenticationSchemes = JwtBearerDefaults.AuthenticationScheme, Roles ="admin")]
     public class DeportesController : ControllerBase
     {
         private readonly ApplicationDbContext context;
@@ -74,6 +75,7 @@ namespace webApiClubDeport.Controllers
          * Añadimos un deporte
          */
         [HttpPost]
+        [Authorize(AuthenticationSchemes = JwtBearerDefaults.AuthenticationScheme, Roles = "admin")]
         public async Task<ActionResult> Post([FromBody] DeporteDto deporteCreate)
         {
             if (deporteCreate.Nombre == null)
@@ -101,6 +103,7 @@ namespace webApiClubDeport.Controllers
          * Modificar un deporte
          */
         [HttpPut("{id}")]
+        [Authorize(AuthenticationSchemes = JwtBearerDefaults.AuthenticationScheme, Roles = "admin")]
         public async Task<ActionResult> Put(int id, [FromBody] DeporteDto deporteDto)
         {
             var deporte = mapper.Map<Deporte>(deporteDto);
@@ -117,6 +120,8 @@ namespace webApiClubDeport.Controllers
          * Eliminar un deporte
         */
         [HttpDelete("{id}")]
+        [Authorize(AuthenticationSchemes = JwtBearerDefaults.AuthenticationScheme, Roles = "admin")]
+
         public async Task<ActionResult<Deporte>> Delete(int id)
         {
             var deporteId = await context.Deportes.Select(x => x.Id).FirstOrDefaultAsync(x => x == id);

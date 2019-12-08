@@ -20,6 +20,9 @@ using webApiClubDeport.Models.PistaModel;
 using webApiClubDeport.Models.SocioModel;
 using webApiClubDeport.Models.ReservaModel;
 using Swashbuckle.AspNetCore.Swagger;
+using Microsoft.OpenApi.Models;
+
+[assembly: ApiConventionType(typeof(DefaultApiConventions))]
 
 namespace webApiClubDeport
 {
@@ -91,7 +94,21 @@ namespace webApiClubDeport
 
             services.AddSwaggerGen(config =>
             {
-                config.SwaggerDoc("v1", new Microsoft.OpenApi.Models.OpenApiInfo { Title = "Gestión de Reservas Pistas para Polideportivo", Version = "v1" });
+                config.SwaggerDoc("v1", new Microsoft.OpenApi.Models.OpenApiInfo
+                {
+                    Version = "V1",
+                    Title = "Gestión de Reservas Pistas para Club polideportivo",
+                    Description = "EndPoints para consultas webApi de reservas para club polideportivo",
+                    License = new OpenApiLicense()
+                    {
+                        Name = "MIT",
+                    },
+                    Contact = new OpenApiContact()
+                    {
+                        Name = "Victor Hugo Aguilar Aguilar",
+                        Email = "victorhugoaguilar@aol.com",
+                    }
+                });
             });
         }
 
@@ -101,7 +118,7 @@ namespace webApiClubDeport
             app.UseSwagger();
             app.UseSwaggerUI(config =>
             {
-                config.SwaggerEndpoint("/swagger/v1/swagger.json", "Mi API V1");
+                config.SwaggerEndpoint("/swagger/v1/swagger.json", "Mi API v1");
             });
 
 
@@ -114,8 +131,6 @@ namespace webApiClubDeport
                 // The default HSTS value is 30 days. You may want to change this for production scenarios, see https://aka.ms/aspnetcore-hsts.
                 app.UseHsts();
             }
-
-
 
             app.UseHttpsRedirection();
             app.UseRouting();
